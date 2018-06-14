@@ -1,0 +1,96 @@
+<html>
+  <head>
+  <title>Pecheniuk</title>
+
+
+<link rel="stylesheet" href="wp-content/themes/mytheme/feedback_form/style/feedback_form.css" type="text/css" />
+
+
+  <link rel="stylesheet" type="text/css" href="wp-content/themes/mytheme/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="wp-content/themes/mytheme/slick/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="wp-content/themes/mytheme/style.css"/>
+
+  </head>
+  <body>
+
+
+
+<form method=post name="main" action="<?=$_SERVER['PHP_SELF']?>"> 
+<input type=hidden name=page value="<?=$_POST["page"]?>"> 
+<SELECT NAME='chpage' ONCHANGE="doPage();"> 
+
+<OPTION <? if ($_POST["chpage"]=="1") echo "selected";?> VALUE="ТЕКСТ1 ТЕКСТ1 ТЕКСТ1 ТЕКСТ1">РУС 
+<OPTION <? if ($_POST["chpage"]=="2") echo "selected";?> VALUE="ТЄКСТ2 ТЄКСТ2 ТЄКСТ2 ТЄКСТ2">УКР 
+<OPTION <? if ($_POST["chpage"]=="3") echo "selected";?> VALUE="TEXT3  TEXT3  TEXT3  TEXT3 ">EN 
+</SELECT> 
+</form>
+
+
+<div class="slider">
+<div class="your-class">
+    <div ><img src="wp-content/themes/mytheme/img/123.jpg"/></div>
+    <div ><img src="wp-content/themes/mytheme/img/123.jpg"/></div>
+    <div ><img src="wp-content/themes/mytheme/img/123.jpg"/></div>
+</div>
+</div>
+
+
+
+
+<? 
+if (!empty($_POST["page"])) echo "<b>".$_POST['page']."</b>"; 
+//Include($page.".htm"); // содержание раздела... 
+?> 
+
+<div><img src="wp-content/themes/mytheme/img/111.jpg"></div>
+<div><img src="wp-content/themes/mytheme/img/111.jpg"></div>
+<div><img src="wp-content/themes/mytheme/img/111.jpg"></div>
+<div><img src="wp-content/themes/mytheme/img/111.jpg"></div>
+
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="wp-content/themes/mytheme/slick/slick.min.js"></script>
+
+
+
+<script language=JavaScript> 
+<!-- функция перезагрузки страницы с параметром выбранного раздела --> 
+function doPage() { 
+var opt=document.main.chpage; 
+var page=opt.options[opt.selectedIndex].value; 
+document.main.page.value=page; 
+// другие преобразования: 
+main.submit(); // перезагрузка страницы 
+} 
+//--> 
+</script> 
+
+
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('.your-class').slick({
+ 		  infinite: true,
+ 		  speed: 300,
+  		  slidesToShow: 1,
+    	  centerMode: true,
+  		  variableWidth: true,
+      });
+    });
+  </script>
+
+<div id="contactable"><!--contactable html placeholder--></div>
+
+
+
+<!--start feedback_form_script  -->
+
+<script type="text/javascript" src="wp-content/themes/mytheme/feedback_form/script_js/jquery_validate_min.js"></script>
+<script type="text/javascript" src="wp-content/themes/mytheme/feedback_form/script_js/jquery_feedback_form.js"></script>
+<script type="text/javascript">$(function(){$('#contactable').contactable();});</script>
+<!--end feedback_form_script -->
+
+
+
+  </body>
+</html>
